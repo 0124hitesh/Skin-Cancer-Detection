@@ -2,7 +2,7 @@ import os
 from flask import Flask, request, render_template, send_from_directory
 
 
-from shubh_predict import predict
+from predict_model import predict
 
 
 app = Flask(__name__)
@@ -20,6 +20,7 @@ def index():
 def upload():
     target = os.path.join(APP_ROOT, 'images/')
     # target = os.path.join(APP_ROOT, 'static/')
+    
     print(target)
     if not os.path.isdir(target):
             os.mkdir(target)
