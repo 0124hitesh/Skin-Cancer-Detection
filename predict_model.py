@@ -49,7 +49,7 @@ def predict(imag_name):
     a = np.argmax(a, axis = 1)[0]
 
     if a == 0:
-        return "begnin"
+        return "benign"
     else:
         return "malignant"
 
