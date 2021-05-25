@@ -3,15 +3,7 @@ import numpy as np
 from PIL import Image
 import tensorflow as tf
 from tensorflow import keras
-# print("--hello--")
 
-# print("\n\n",os.listdir(os.getcwd()),"\n\n\n")
-
-# print("\n\n\n", os.path.join(os.getcwd(), "model/shubh_model35.h5"),"\n\n\n")
-
-# print("\n\n\n\n",os.path.exists(os.path.join(os.getcwd(), "model")),"\n\n\n")
-
-# model_1 = keras.models.load_model("./shubh_model35.h5")
 interpreter = tf.lite.Interpreter(model_path='./model.tflite')
 interpreter.allocate_tensors()
 
