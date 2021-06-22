@@ -9,6 +9,8 @@ interpreter.allocate_tensors()
 
 read = lambda imname: np.asarray(Image.open(imname).convert("RGB"))
 
+print("\n\n\n","inside predict","\n\n\n")
+
 def predict(imag_name):
     image = Image.open(imag_name)
     resized_im = image.resize((224,224))
