@@ -29,13 +29,22 @@ def base64_to_image(base64_str, image_path=None):
         img.save(image_path)
     return img
 
+@app.errorhandler(404)
+def not_found(e):
+  return render_template("404.html")
+
+
 @app.route("/")
 def index():
     return render_template("upload.html")
 
 
-@app.route("/upload", methods=["POST"])
+@app.route("/upload", methods=["POST","GET"])
 def upload():
+    if request.method == 'GET':
+        flash("this method is not allowed","error")
+        return redirect(url_for('index'))
+
     target = os.path.join(APP_ROOT, 'images/')
     
     print(target)
@@ -103,8 +112,10 @@ def get_gallery():
 #     return render_template("complete_display_image.html",image_name = image_name)
 
 
-@app.route("/upload1", methods=["POST"])
+@app.route("/upload1", methods=["POST","GET"])
 def process_image1():
+    if request.method == 'GET':
+        return jsonify({"ans" : "this method is not allowed"}),405
     file = request.form['image']
 
     if file == 'null':
